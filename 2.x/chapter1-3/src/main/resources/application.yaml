@@ -1,0 +1,40 @@
+#2.4之后的配置
+# 激活prod配置
+spring:
+  profiles:
+    active: "dev"
+    group:
+      "dev": "dev-db,dev-mq"
+      "prod": "prod-db,prod-mq"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev-db"
+
+db: dev-db.sisyphuswxg.com
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev-mq"
+
+mq: dev-mq.sisyphuswxg.com
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod-db"
+
+db: prod-db.sisyphuswxg.com
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod-mq"
+
+mq: prod-mq.sisyphuswxg.com
